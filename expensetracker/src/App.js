@@ -6,18 +6,53 @@ import  IncomeExpenses from './components/IncomeExpenses.js'
 import { TransactionList } from './components/TransactionList'
 import AddTransaction from './components/AddTransaction';
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <div className = "container">
-        <Balance />
-        <IncomeExpenses />
-        <TransactionList />
-        <AddTransaction />
+
+class App extends React.Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      transactions: [
+
+    ] 
+
+    }  
+
+    this.deleteTransaction = this.deleteTransaction.bind(this);
+    this.addTransaction = this.addTransaction.bind(this);
+  }
+
+  deleteTransaction(id){
+    this.setState({
+      transactions: [
+        this.state.transactions.filter(transaction => transaction.id !==id)
+      ]
+    });
+  }
+
+  addTransaction(obj){
+    this.setState({
+      transactions:
+        [obj,...this.state.transactions]
+      
+    })
+  }
+
+  render(){
+    return (
+      <div>
+        <Header />
+        <div className = "container">
+          <Balance transactions = {this.state.transactions} />
+          <IncomeExpenses transactions = {this.state.transactions}/>
+          <TransactionList transactions = {this.state.transactions} deleteTransaction = {this.deleteTransaction} />
+          <AddTransaction  addTransaction = {this.addTransaction}/>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+ 
 }
 
 export default App;
