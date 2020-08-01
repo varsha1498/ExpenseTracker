@@ -15,7 +15,7 @@ exports.getTransactions = async (req, res, next) => {
     }
     catch(err){
         return res.status(500).json({
-            error: "error found"
+            error: "error occured"
         })
     }
 }
@@ -60,7 +60,7 @@ exports.deleteTransactions = async (req, res, next) => {
 
         await transaction.remove();
         return res.status(200).json({
-            sucess: true,
+            success: true,
             data: []
         });
     }

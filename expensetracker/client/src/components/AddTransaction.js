@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+//import uuid from '../node_modules/uuid/dist/v4'
 
 
 const AddTransaction = (props) => {
@@ -12,7 +13,7 @@ const AddTransaction = (props) => {
         e.preventDefault();
         
         const newTransaction = {
-            id: Math.floor(Math.random()*1000000),
+            id: Math.floor(Math.random()*1000),
             text: Text,
             amount: +Amount
         }
