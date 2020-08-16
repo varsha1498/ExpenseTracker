@@ -32,7 +32,7 @@ class App extends React.Component {
     try{
       console.log("hi");
       const res = await axios.get(' http://localhost:5000/api/v1/transactions');
-      //console.log(res);
+     
       const data  = res.data.data;
       
       this.setState({
@@ -81,7 +81,7 @@ class App extends React.Component {
    try
   {
     const res = await axios.post('http://localhost:5000/api/v1/transactions', obj, config);
-
+    console.log(res);
     const newObj = res.data.data;
     this.setState({
       transactions:
