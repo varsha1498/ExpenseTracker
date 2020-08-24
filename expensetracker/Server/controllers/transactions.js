@@ -6,8 +6,10 @@ const Transaction  = require('../models/Transaction');
 
 exports.getTransactions = async (req, res, next) => {
     try{
-        const transactions = await Transaction.find();
-
+        console.log("I am in server");
+        const {email} = req.query;
+        console.log(req.query);
+        const transactions = await Transaction.find({"email": email});
         return res.status(200).json({
             message: "Successful",
             data: transactions
@@ -26,8 +28,9 @@ exports.getTransactions = async (req, res, next) => {
 
 exports.addTransactions = async (req, res, next) => {
   try{
-    const { text, amount } = req.body;
-
+    console.log(req.body)
+    const { text, amount, email } = req.body;
+    
     const transaction = await Transaction.create(req.body);
 
     return res.status(200).json({

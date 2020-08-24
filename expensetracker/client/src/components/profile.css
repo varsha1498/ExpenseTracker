@@ -1,0 +1,35 @@
+.profile{
+    background-image: linear-gradient(peachpuff, white);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    height: 50vh;
+    width: 500px;
+    align-items: center;
+    margin-top: 90px;
+}
+
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    align-items: center;
+    justify-items: center;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: purple;
+}
+
+
+    .logout {
+        transition-duration: 0.4s;
+        height: 40px;
+        cursor: pointer;
+      }
+      
+      .logout:hover {
+        background-color: red; /* Green */
+        color: white;
+      }
+    

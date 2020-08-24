@@ -4,7 +4,7 @@ const {signUp, signIn, accountActivation, forgotPassword, resetPassword} = requi
 
 router.post('/signup',signUp);
 
-router.post('/account-activation', accountActivation);
+// router.post('/account-activation', accountActivation);
 
 router.post('/signin', signIn);
 

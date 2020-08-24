@@ -159,3 +159,16 @@ input[type='number'] {
     width: 300px;
   }
 }
+
+.top{
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-btn{
+  size: 30px;
+  border-radius: 2px;
+  margin-left: 90px;
+  margin-top: 10px;
+  background-color: peachpuff;
+}

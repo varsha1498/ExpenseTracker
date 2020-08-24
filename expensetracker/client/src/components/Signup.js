@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './signup.css'
 import history from './history';
 import {useHistory} from 'react-router-dom';
+import axios from 'axios';
 
 export default function Signup() {
    const [name, setName] = useState("");
@@ -10,6 +11,22 @@ export default function Signup() {
    const [dob, setdob] = useState("");
    const [profession, setProfession] = useState("");
    const history = useHistory();
+
+   const sendData = async (obj) => {
+     try{
+      const config = {
+        'Config-Type' : 'application/json'
+      }
+  
+      const res = await axios.post("http://localhost:5000/signup",obj, config);
+    
+     }
+     catch(err){
+       console.log(err);
+       console.log("i am getting error")
+     }
+    
+   }
    const submit = (e) =>{
      e.preventDefault();
     const obj = {
@@ -19,7 +36,8 @@ export default function Signup() {
       dob: dob,
       profession: profession
     }
-    console.log(obj);
+    sendData(obj);
+
     setName("");
     setPassword("");
     setEmail("");
@@ -53,7 +71,7 @@ export default function Signup() {
         <br/>
         <b>Password: </b>
         <input 
-          type="text" 
+          type="password" 
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           title = "e.g. Must contain a capital letter, a number and a special character "
           value = {password}
@@ -79,7 +97,7 @@ export default function Signup() {
           required 
         />
         <br/>
-        <button>Let's Go</button>
+        <button className="button">Let's Go</button>
     	</form>
         </div>
     )

@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Transaction(props) {
-    console.log(props)
     const {transactions, deleteTransaction} = props;
 
    
@@ -9,10 +8,6 @@ function Transaction(props) {
         const sign = transaction.amount>0? "+": "-";
         const classN = transaction.amount < 0?"minus": "plus";
 
-        const handleClick = (id) => {
-            console.log("i clicked")
-            console.log(id)
-        }
      return(
         <li key={transaction._id} className={classN}>
             {transaction.text}<span>{sign}${Math.abs(transaction.amount)}</span>
@@ -23,7 +18,7 @@ function Transaction(props) {
         </li>
      )    
     });
-    console.log(transactionLi)
+
     return (
         <>
         {transactionLi}

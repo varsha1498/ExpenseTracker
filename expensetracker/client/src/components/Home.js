@@ -12,7 +12,14 @@ export default class Home extends Component {
             <>
              <div className="home">
                 <NavBar history={this.props.history} /> 
-               <p className = "impact"> Your personal Expense tracker where you can maintain monthly income and expenses</p>
+               <div className = "impact"> Your personal Budget tracker where you can maintain monthly income and expenses
+                 <ul>
+                    <li>Add transactions</li>
+                    <li>Remove transactions</li>
+                    <li>Get Income and expenses value</li>
+                    <li>Keep a track of your Balance</li>
+                </ul>
+             </div>
             </div>
             </>
             

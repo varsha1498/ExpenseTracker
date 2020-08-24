@@ -1,10 +1,13 @@
 const _ = require("lodash");
-const User = require("../models/auth");
+const User = require("../models/User");
 
 
 exports.signUp = (req, res) => {
+  console.log(req.body);
   const { name, email, dob, password, profession } = req.body;
+  
   const userNew = new User();
+
   
 
   User.findOne({ email }).exec((err, user) => {
@@ -21,25 +24,38 @@ exports.signUp = (req, res) => {
     }
     userNew.name = name;
     userNew.email = email;
+    userNew.dob = dob;
     userNew.password = password;
-    User.save();
+    userNew.profession = profession;
+
+    userNew.save((err,user) => {
+              if(err){
+                  return res.status(400).json({
+                      status: "failed",
+                      message: "failed to create a post",
+                  })
+              }
+              return res.json({
+                data: user,
+                message: "Succesfully signed up"
+              });
+          });
      
-      res.json({
-        message: `Successfully signed up`,
-      });
-    });
-  }
+  });
+
+}
 
 
 exports.signIn = (req, res) => {
   const { email, password } = req.body;
-
+  // console.log(email);
+  // console.log(req.body);
   // AuthLogger.setLogData(req.body);
   // AuthLogger.info("Request recieved at auth/signin", req.body);
 
   User.findOne({ email }).exec((err, user) => {
     if (err || !user) {
-      AuthLogger.error("User with the email specified doesn't exist.");
+      console.log("User with the email specified doesn't exist.");
 
       return res.status(400).json({
         error: "User with the email specified doesn't exist.",
@@ -51,15 +67,15 @@ exports.signIn = (req, res) => {
         error: "Password is incorrect",
       });
     }
-    const { _id, name, role, email } = user;
+    const { _id, name, email } = user;
 
     return res.json({
       user: {
         _id,
         name,
-        role,
-        email,
+        email
       },
+      isLoggedIn: true,
       message: "Signed in successfully",
     });
   });

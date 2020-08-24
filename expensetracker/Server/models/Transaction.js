@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const user = require("./User");
 
 const TransactionSchema = new mongoose.Schema({
     text:{
@@ -12,15 +12,19 @@ const TransactionSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    // user:{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "user"
-    // },
+    email:{
+        type: String,
+        required: true,
+    },
     createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt:{
         type: Date,
         default: Date.now
     }
     
 });
 
-module.exports = mongoose.model('Transaction', TransactionSchema, 'Transactions');
+module.exports = mongoose.model('Transaction', TransactionSchema);

@@ -1,12 +1,10 @@
 import React from 'react';
-import './Home.css';
+import './Navbar.css';
 import {useHistory} from 'react-router-dom';
-// import Router from '../router/route'
-// import history from './history';
+
 
 function NavBar(props) {
-    // const {history} = props;
-    // console.log(useHistory)
+
     const history = useHistory();
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -25,9 +23,11 @@ function NavBar(props) {
     }
     return (
             <nav className = "topnav">
-         <h1 className = "heading">Pocket Tracky</h1>
+         <div className = "heading">
+            <img src = "/logoImg.png" height = "80px" width = "100%"/>
+         </div>
             <div className = "nav-right">
-            <a href="/signup" >login</a>
+
            <button className = "inner" onClick = {handleSubmit} name = "signup">SignUp</button>
            <button className = "inner" onClick = {handleSubmit} name = "signin">SignIn</button>
             </div>

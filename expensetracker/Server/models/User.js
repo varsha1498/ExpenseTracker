@@ -21,21 +21,19 @@ const UserSchema = new mongoose.Schema(
           },
           dob:{
             type: Date,
-            required
+            required: true,
         },
         profession:{
             type: String,
             trim: true,
-            default: subscriber
+            default: "subscriber",
         },
+        
         salt: {
             type: String,
-            required: true
+            required: true,
           },
-        history: [{
-            type: Schema.Types.ObjectId,
-            ref: "Transaction",
-        }],
+        
   
     }, 
      { timestamps: true }
@@ -82,4 +80,4 @@ UserSchema.methods = {
         });
 
         
-module.exports = mongoose.model("user", User, "users");
+module.exports = mongoose.model("user", UserSchema);

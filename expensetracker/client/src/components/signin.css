@@ -1,19 +1,18 @@
 
-* {
-  box-sizing: border-box;
-  
-}
-
-.login-container{
+.login-container
+{
+  height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
   background-image: url("../signinback.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+
+
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -25,7 +24,7 @@ input[type=text], input[type=password] {
   }
   
   /* Set a style for all buttons */
-  button {
+  .button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -35,7 +34,7 @@ input[type=text], input[type=password] {
     width: 100%;
   }
   
-  button:hover {
+  .button:hover {
     opacity: 0.8;
   }
   

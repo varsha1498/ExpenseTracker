@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { GlobalData } from '../context/TransactionData';
 //import uuid from '../node_modules/uuid/dist/v4'
 
 
-const AddTransaction = (props) => {
+const AddTransaction = () => {
     const [Text, setText] = useState("");
     const [Amount, setAmount] = useState(0);
     const[date, setDate] = useState("");
 
-    const {addTransaction} = props; 
-
+    const data = useContext(GlobalData);
+    const {addTransaction} = data; 
+    const email = sessionStorage.getItem("Email");
     const onSubmit = e =>{
         e.preventDefault();
         
         const newTransaction = {
             id: Math.floor(Math.random()*1000),
             text: Text,
-            amount: +Amount
+            amount: +Amount,
+            email: email
         }
         addTransaction(newTransaction);
         setText("");

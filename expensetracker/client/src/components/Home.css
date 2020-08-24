@@ -1,13 +1,6 @@
-body, html {
-    height: 100% !important;
-  }
-  *{
-      box-sizing: border-box;
-  }
-
 .home{
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-image: url("../bk.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,39 +11,7 @@ body, html {
     white-space: nowrap;
 }
 
-.topnav{
-    display: flex;
-    height: 40%;
-    width: 100%;
-    background-color: #bab191;
-    /* justify-content: flex-start; */
-    overflow: hidden;
-    margin-bottom: 0px !important;
-   
-        
-}
 
-/* .button1{
-    display: flex;
-    margin-left: 50px;
-} */
-
-.topnav button {
-    float: left;
-    color:black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    white-space: nowrap;
-    overflow-x: auto;
-  }
-.nav-right{
-    /* float: right;*/
-    margin-left: 77%; 
-    width:100%;
-    text-align: right;
-}
 
 .main-container{
     background-color: bisque;
@@ -58,13 +19,7 @@ body, html {
     width: 100%;
     margin-top: 0px !important;
 }
-.inner{
-    display: inline-block;
-    margin: 2px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    border-radius: 50%;
-    border: none;
-}
+
 
 /* .logo-img{
     float: left;
@@ -76,6 +31,7 @@ body, html {
     color: cornsilk;
     font-weight: bold;
     font-family: "Lucida Console", Courier, monospace;
-    font-size: large;
+    font-size: 50px;
     font-style: italic;
+
 }
